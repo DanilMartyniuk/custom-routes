@@ -12,6 +12,7 @@
   {
     "name": "extra RU domains direct",
     "domain_suffix": [
+      "vdsina.com",
       "vk.com", "vkuseraudio.net", "vkuservideo.net", "vk-cdn.net", "userapi.com",
       "yandex.com", "yandex.net", "yastatic.net", "yadro.net", "yastat.net",
       "mradx.net", "imgsmail.net", "mycdn.me", "ok.me",
