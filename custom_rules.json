@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "name": "bittorrent direct",
+    "protocol": ["bittorrent"],
+    "outbound": "direct"
+  },
+  {
+    "name": "ru/by/rf TLDs direct",
+    "domain_suffix": ["ru", "by", "xn--p1ai"],
+    "outbound": "direct"
+  },
+  {
+    "name": "extra RU domains direct",
+    "domain_suffix": [
+      "vk.com", "vkuseraudio.net", "vkuservideo.net", "vk-cdn.net", "userapi.com",
+      "yandex.com", "yandex.net", "yastatic.net", "yadro.net", "yastat.net",
+      "mradx.net", "imgsmail.net", "mycdn.me", "ok.me",
+      "sberdevices.com", "sber.me", "zvuk.com",
+      "tinkoff.business", "tbank.io",
+      "f6.security",
+      "alfabank.com",
+      "ostrovok.com",
+      "2gis.com", "2gis.pro",
+      "cdnvideo.net", "cdnvideo.com", "edgecdn.net", "ngenix.net", "gcdn.co",
+      "delivery-club.tech",
+      "avito.st",
+      "tvoyklass.com",
+      "sunlight.net",
+      "steamstatic.com",
+      "steampowered.com"
+    ],
+    "outbound": "direct"
+  },
+  {
+    "name": "apps direct",
+    "process_name": [
+      "steam", "steamwebhelper", "dota2", "syncthing", "transmission-gtk",
+      "dota2.exe", "steam.exe", "tixati.exe", "syncthing.exe"
+    ],
+    "outbound": "direct"
+  }
+]
