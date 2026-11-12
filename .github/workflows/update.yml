@@ -1,0 +1,30 @@
+name: Update merged profile
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+  push:
+    paths:
+      - custom_rules.json
+      - merge.py
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build merged profile
+        run: python3 merge.py
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain My_Bypass_Russia)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add My_Bypass_Russia
+            git commit -m "Update merged profile"
+            git push
+          fi
