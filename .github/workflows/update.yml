@@ -27,4 +27,7 @@ jobs:
             git add My_Bypass_Russia
             git commit -m "Update merged profile"
             git push
+            # Throne fetches via the jsDelivr mirror, which caches branch files; purge it.
+            sleep 5
+            curl -fsS "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/My_Bypass_Russia" || true
           fi
