@@ -51,8 +51,42 @@ def main() -> int:
     rules[idx:idx] = custom
     prof["name"] = OUT_NAME
 
+    # ==========================================
+    # NEW: Force Rule-Set Downloads to go Direct
+    # ==========================================
+    
+    # 1. Define the new http_clients array
+    if "http_clients" not in prof:
+        prof["http_clients"] = []
+    
+    # Check if our direct client already exists to avoid duplicates
+    has_direct_client = any(client.get("tag") == "direct-download" for client in prof["http_clients"])
+    if not has_direct_client:
+        prof["http_clients"].append({
+            "tag": "direct-download",
+            "outbound": "direct"
+        })
+
+    # 2. Update all remote rule-sets to use the new http_client
+    # (Handling cases where rule_set is top-level or nested inside 'route')
+    rule_sets = []
+    if "rule_set" in prof:
+        rule_sets = prof["rule_set"]
+    elif "route" in prof and "rule_set" in prof["route"]:
+        rule_sets = prof["route"]["rule_set"]
+
+    for rs in rule_sets:
+        if rs.get("type") == "remote":
+            # Remove the deprecated field
+            rs.pop("download_detour", None)
+            # Assign the new direct download client
+            rs["http_client"] = "direct-download"
+            
+    # ==========================================
+
     open("My_Bypass_Russia", "w", encoding="utf-8").write(encode(prof) + "\n")
     print(f"OK: {len(custom)} custom rules inserted at position {idx + 1}, total {len(rules)}")
+    print("OK: Rule-set downloads forced through 'direct' http_client.")
     return 0
 
 
