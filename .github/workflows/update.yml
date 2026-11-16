@@ -7,7 +7,9 @@ on:
   push:
     paths:
       - custom_rules.json
+      - custom_rules_v2rayng.json
       - merge.py
+      - merge_v2rayng.py
 
 permissions:
   contents: write
@@ -17,14 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build merged profile
+      - name: Build Throne profile
         run: python3 merge.py
+      - name: Build v2rayNG ruleset
+        run: python3 merge_v2rayng.py
       - name: Commit if changed
         run: |
-          if [ -n "$(git status --porcelain My_Bypass_Russia)" ]; then
+          if [ -n "$(git status --porcelain My_Bypass_Russia My_Bypass_Russia_v2rayNG.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add My_Bypass_Russia
+            git add My_Bypass_Russia My_Bypass_Russia_v2rayNG.json
             git commit -m "Update merged profile"
             git push
             # Throne fetches via the jsDelivr mirror, which caches branch files; purge it.

@@ -1,0 +1,81 @@
+[
+  {
+    "remarks": "direct rule #2",
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ]
+  },
+  {
+    "remarks": "bittorrent direct",
+    "outboundTag": "direct",
+    "protocol": [
+      "bittorrent"
+    ]
+  },
+  {
+    "remarks": "ru/by/rf TLDs direct",
+    "outboundTag": "direct",
+    "domain": [
+      "domain:ru",
+      "domain:by",
+      "domain:xn--p1ai"
+    ]
+  },
+  {
+    "remarks": "extra RU domains direct",
+    "outboundTag": "direct",
+    "domain": [
+      "domain:vdsina.com",
+      "domain:vk.com",
+      "domain:vkuseraudio.net",
+      "domain:vkuservideo.net",
+      "domain:vk-cdn.net",
+      "domain:userapi.com",
+      "domain:yandex.com",
+      "domain:yandex.net",
+      "domain:yastatic.net",
+      "domain:yadro.net",
+      "domain:yastat.net",
+      "domain:mradx.net",
+      "domain:imgsmail.net",
+      "domain:mycdn.me",
+      "domain:ok.me",
+      "domain:sberdevices.com",
+      "domain:sber.me",
+      "domain:zvuk.com",
+      "domain:tinkoff.business",
+      "domain:tbank.io",
+      "domain:f6.security",
+      "domain:alfabank.com",
+      "domain:ostrovok.com",
+      "domain:2gis.com",
+      "domain:2gis.pro",
+      "domain:cdnvideo.net",
+      "domain:cdnvideo.com",
+      "domain:edgecdn.net",
+      "domain:ngenix.net",
+      "domain:gcdn.co",
+      "domain:delivery-club.tech",
+      "domain:avito.st",
+      "domain:tvoyklass.com",
+      "domain:sunlight.net",
+      "domain:steamstatic.com",
+      "domain:steampowered.com"
+    ]
+  },
+  {
+    "remarks": "direct rule #7 (domains)",
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:category-ru"
+    ]
+  },
+  {
+    "remarks": "direct rule #7 (IP)",
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:ru"
+    ]
+  }
+]
